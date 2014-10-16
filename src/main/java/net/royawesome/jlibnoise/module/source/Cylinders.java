@@ -25,26 +25,26 @@ import net.royawesome.jlibnoise.Utils;
 import net.royawesome.jlibnoise.module.Module;
 
 public class Cylinders extends Module {
-	public static final double DEFAULT_CYLINDERS_FREQUENCY = 1.0;
+    public static final double DEFAULT_CYLINDERS_FREQUENCY = 1.0;
 
-	double frequency = DEFAULT_CYLINDERS_FREQUENCY;
+    double frequency = DEFAULT_CYLINDERS_FREQUENCY;
 
-	public Cylinders() {
-		super(0);
-	}
+    public Cylinders() {
+        super(0);
+    }
 
-	public double getFrequency() {
-		return frequency;
-	}
+    public double getFrequency() {
+        return frequency;
+    }
 
-	public void setFrequency(double frequency) {
-		this.frequency = frequency;
-	}
+    public void setFrequency(double frequency) {
+        this.frequency = frequency;
+    }
 
-	@Override
-	public int GetSourceModuleCount() {
-		return 0;
-	}
+    @Override
+    public int GetSourceModuleCount() {
+        return 0;
+    }
 
     @Override
     public double GetValue(double x, double y, double z) {

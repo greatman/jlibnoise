@@ -33,3 +33,5 @@ target/
 *.jar
 *.war
 *.ear
+jlibnoise.iml
+.idea
