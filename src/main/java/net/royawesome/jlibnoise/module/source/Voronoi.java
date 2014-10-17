@@ -89,12 +89,12 @@ public class Voronoi extends Module {
     }
 
     @Override
-    public int GetSourceModuleCount() {
+    public int getSourceModuleCount() {
         return 0;
     }
 
     @Override
-    public double GetValue(double x, double y, double z) {
+    public double getValue(double x, double y, double z) {
         double x1 = x;
         double y1 = y;
         double z1 = z;
@@ -123,9 +123,9 @@ public class Voronoi extends Module {
 
                     // Calculate the position and distance to the seed point inside of
                     // this unit cube.
-                    double xPos = xCur + Noise.ValueNoise3D(xCur, yCur, zCur, seed);
-                    double yPos = yCur + Noise.ValueNoise3D(xCur, yCur, zCur, seed + 1);
-                    double zPos = zCur + Noise.ValueNoise3D(xCur, yCur, zCur, seed + 2);
+                    double xPos = xCur + Noise.valueNoise3D(xCur, yCur, zCur, seed);
+                    double yPos = yCur + Noise.valueNoise3D(xCur, yCur, zCur, seed + 1);
+                    double zPos = zCur + Noise.valueNoise3D(xCur, yCur, zCur, seed + 2);
                     double xDist = xPos - x1;
                     double yDist = yPos - y1;
                     double zDist = zPos - z1;
@@ -155,7 +155,7 @@ public class Voronoi extends Module {
         }
 
         // Return the calculated distance with the displacement value applied.
-        return value + (displacement * Noise.ValueNoise3D((int) (MathHelper.floor(xCandidate)), (int) (MathHelper.floor(yCandidate)), (int) (MathHelper.floor(zCandidate)), seed));
+        return value + (displacement * Noise.valueNoise3D((int) (MathHelper.floor(xCandidate)), (int) (MathHelper.floor(yCandidate)), (int) (MathHelper.floor(zCandidate)), seed));
 
     }
 

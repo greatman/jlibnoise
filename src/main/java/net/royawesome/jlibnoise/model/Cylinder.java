@@ -34,7 +34,7 @@ import net.royawesome.jlibnoise.module.Module;
  * coordinates of an input value located on the surface of a cylinder.
  * <p/>
  * To generate an output value, pass the (angle, height) coordinates of
- * an input value to the GetValue() method.
+ * an input value to the getValue() method.
  * <p/>
  * This model is useful for creating: - seamless textures that can be
  * mapped onto a cylinder
@@ -103,7 +103,7 @@ public class Cylinder {
         x = MathHelper.cos(angle * Utils.DEG_TO_RAD);
         y = height;
         z = MathHelper.sin(angle * Utils.DEG_TO_RAD);
-        return module.GetValue(x, y, z);
+        return module.getValue(x, y, z);
 
     }
 }

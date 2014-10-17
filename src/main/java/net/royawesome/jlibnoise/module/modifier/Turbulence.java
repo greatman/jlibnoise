@@ -94,12 +94,12 @@ public class Turbulence extends Module {
     }
 
     @Override
-    public int GetSourceModuleCount() {
+    public int getSourceModuleCount() {
         return 1;
     }
 
     @Override
-    public double GetValue(double x, double y, double z) {
+    public double getValue(double x, double y, double z) {
         if (SourceModule[0] == null)
             throw new NoModuleException();
 
@@ -122,13 +122,13 @@ public class Turbulence extends Module {
         x2 = x + (53820.0 / 65536.0);
         y2 = y + (11213.0 / 65536.0);
         z2 = z + (44845.0 / 65536.0);
-        double xDistort = x + (xDistortModule.GetValue(x0, y0, z0) * power);
-        double yDistort = y + (yDistortModule.GetValue(x1, y1, z1) * power);
-        double zDistort = z + (zDistortModule.GetValue(x2, y2, z2) * power);
+        double xDistort = x + (xDistortModule.getValue(x0, y0, z0) * power);
+        double yDistort = y + (yDistortModule.getValue(x1, y1, z1) * power);
+        double zDistort = z + (zDistortModule.getValue(x2, y2, z2) * power);
 
         // Retrieve the output value at the offsetted input value instead of the
         // original input value.
-        return SourceModule[0].GetValue(xDistort, yDistort, zDistort);
+        return SourceModule[0].getValue(xDistort, yDistort, zDistort);
 
     }
 

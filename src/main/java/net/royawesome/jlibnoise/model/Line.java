@@ -34,7 +34,7 @@ import net.royawesome.jlibnoise.module.Module;
  * students
  * <p/>
  * To generate an output value, pass an input value between 0.0 and 1.0 to the
- * GetValue() method. 0.0 represents the start position of the line segment and
+ * getValue() method. 0.0 represents the start position of the line segment and
  * 1.0 represents the end position of the line segment.
  */
 public class Line {
@@ -173,7 +173,7 @@ public class Line {
         double x = (x1 - x0) * p + x0;
         double y = (y1 - y0) * p + y0;
         double z = (z1 - z0) * p + z0;
-        double value = module.GetValue(x, y, z);
+        double value = module.getValue(x, y, z);
 
         if (attenuate) {
             return p * (1.0 - p) * 4 * value;

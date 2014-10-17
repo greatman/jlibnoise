@@ -32,7 +32,7 @@ import net.royawesome.jlibnoise.module.Module;
  * @a z ) plane.
  * <p/>
  * To generate an output value, pass the ( @a x, @a z ) coordinates of an
- * input value to the GetValue() method.
+ * input value to the getValue() method.
  * <p/>
  * This model is useful for creating: - two-dimensional textures - terrain
  * height maps for local areas
@@ -95,6 +95,6 @@ public class Plane {
     double getValue(double x, double z) {
         if (module == null)
             throw new NoModuleException();
-        return module.GetValue(x, 0, z);
+        return module.getValue(x, 0, z);
     }
 }

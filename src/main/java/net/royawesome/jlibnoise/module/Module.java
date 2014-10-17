@@ -41,8 +41,8 @@ public abstract class Module {
 
     }
 
-    public Module getSourceModule(int index) {
-        if (index >= GetSourceModuleCount() || index < 0 || SourceModule[index] == null) {
+    protected Module getSourceModule(int index) {
+        if (index >= getSourceModuleCount() || index < 0 || SourceModule[index] == null) {
             throw new NoModuleException();
         }
         return (SourceModule[index]);
@@ -52,13 +52,13 @@ public abstract class Module {
     public void SetSourceModule(int index, Module sourceModule) {
         if (SourceModule == null)
             return;
-        if (index >= GetSourceModuleCount() || index < 0) {
+        if (index >= getSourceModuleCount() || index < 0) {
             throw new IllegalArgumentException("Index must be between 0 and GetSourceMoudleCount()");
         }
         SourceModule[index] = sourceModule;
     }
 
-    public abstract int GetSourceModuleCount();
+    public abstract int getSourceModuleCount();
 
-    public abstract double GetValue(double x, double y, double z);
+    public abstract double getValue(double x, double y, double z);
 }

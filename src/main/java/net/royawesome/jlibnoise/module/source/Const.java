@@ -38,12 +38,12 @@ public class Const extends Module {
     }
 
     @Override
-    public int GetSourceModuleCount() {
+    public int getSourceModuleCount() {
         return 0;
     }
 
     @Override
-    public double GetValue(double x, double y, double z) {
+    public double getValue(double x, double y, double z) {
         return value;
     }
 

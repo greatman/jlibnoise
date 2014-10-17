@@ -104,12 +104,12 @@ public class Billow extends Module {
     }
 
     @Override
-    public int GetSourceModuleCount() {
+    public int getSourceModuleCount() {
         return 0;
     }
 
     @Override
-    public double GetValue(double x, double y, double z) {
+    public double getValue(double x, double y, double z) {
         double z1 = z;
         double y1 = y;
         double x1 = x;
@@ -127,14 +127,14 @@ public class Billow extends Module {
 
             // Make sure that these floating-point values have the same range as a 32-
             // bit integer so that we can pass them to the coherent-noise functions.
-            nx = Utils.MakeInt32Range(x1);
-            ny = Utils.MakeInt32Range(y1);
-            nz = Utils.MakeInt32Range(z1);
+            nx = Utils.makeInt32Range(x1);
+            ny = Utils.makeInt32Range(y1);
+            nz = Utils.makeInt32Range(z1);
 
             // Get the coherent-noise value from the input value and add it to the
             // final result.
             seed = (this.seed + curOctave);
-            signal = Noise.GradientCoherentNoise3D(nx, ny, nz, seed, quality);
+            signal = Noise.gradientCoherentNoise3D(nx, ny, nz, seed, quality);
             signal = 2.0 * Math.abs(signal) - 1.0;
             value += signal * curPersistence;
 

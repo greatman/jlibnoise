@@ -30,7 +30,7 @@ public class Displace extends Module {
     }
 
     @Override
-    public int GetSourceModuleCount() {
+    public int getSourceModuleCount() {
         return 4;
     }
 
@@ -80,7 +80,7 @@ public class Displace extends Module {
     }
 
     @Override
-    public double GetValue(double x, double y, double z) {
+    public double getValue(double x, double y, double z) {
         if (SourceModule[0] == null)
             throw new NoModuleException();
         if (SourceModule[1] == null)
@@ -92,13 +92,13 @@ public class Displace extends Module {
 
         // Get the output values from the three displacement modules.  Add each
         // value to the corresponding coordinate in the input value.
-        double xDisplace = x + (SourceModule[1].GetValue(x, y, z));
-        double yDisplace = y + (SourceModule[2].GetValue(x, y, z));
-        double zDisplace = z + (SourceModule[3].GetValue(x, y, z));
+        double xDisplace = x + (SourceModule[1].getValue(x, y, z));
+        double yDisplace = y + (SourceModule[2].getValue(x, y, z));
+        double zDisplace = z + (SourceModule[3].getValue(x, y, z));
 
         // Retrieve the output value using the offsetted input value instead of
         // the original input value.
-        return SourceModule[0].GetValue(xDisplace, yDisplace, zDisplace);
+        return SourceModule[0].getValue(xDisplace, yDisplace, zDisplace);
 
     }
 

@@ -133,19 +133,19 @@ public class RotatePoint extends Module {
     }
 
     @Override
-    public int GetSourceModuleCount() {
+    public int getSourceModuleCount() {
         return 1;
     }
 
     @Override
-    public double GetValue(double x, double y, double z) {
+    public double getValue(double x, double y, double z) {
         if (SourceModule[0] == null)
             throw new NoModuleException();
 
         double nx = (x1Matrix * x) + (y1Matrix * y) + (z1Matrix * z);
         double ny = (x2Matrix * x) + (y2Matrix * y) + (z2Matrix * z);
         double nz = (x3Matrix * x) + (y3Matrix * y) + (z3Matrix * z);
-        return SourceModule[0].GetValue(nx, ny, nz);
+        return SourceModule[0].getValue(nx, ny, nz);
 
     }
 

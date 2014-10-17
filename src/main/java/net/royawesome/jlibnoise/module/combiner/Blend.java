@@ -43,12 +43,12 @@ public class Blend extends Module {
     }
 
     @Override
-    public int GetSourceModuleCount() {
+    public int getSourceModuleCount() {
         return 3;
     }
 
     @Override
-    public double GetValue(double x, double y, double z) {
+    public double getValue(double x, double y, double z) {
         if (SourceModule[0] == null)
             throw new NoModuleException();
         if (SourceModule[1] == null)
@@ -56,10 +56,10 @@ public class Blend extends Module {
         if (SourceModule[2] == null)
             throw new NoModuleException();
 
-        double v0 = SourceModule[0].GetValue(x, y, z);
-        double v1 = SourceModule[1].GetValue(x, y, z);
-        double alpha = (SourceModule[2].GetValue(x, y, z) + 1.0) / 2.0;
-        return Utils.LinearInterp(v0, v1, alpha);
+        double v0 = SourceModule[0].getValue(x, y, z);
+        double v1 = SourceModule[1].getValue(x, y, z);
+        double alpha = (SourceModule[2].getValue(x, y, z) + 1.0) / 2.0;
+        return Utils.linearInterp(v0, v1, alpha);
 
     }
 

@@ -42,12 +42,12 @@ public class Cylinders extends Module {
     }
 
     @Override
-    public int GetSourceModuleCount() {
+    public int getSourceModuleCount() {
         return 0;
     }
 
     @Override
-    public double GetValue(double x, double y, double z) {
+    public double getValue(double x, double y, double z) {
         double z1 = z;
         double x1 = x;
         x1 *= frequency;
@@ -56,7 +56,7 @@ public class Cylinders extends Module {
         double distFromCenter = MathHelper.sqrt(x1 * x1 + z1 * z1);
         double distFromSmallerSphere = distFromCenter - MathHelper.floor(distFromCenter);
         double distFromLargerSphere = 1.0 - distFromSmallerSphere;
-        double nearestDist = Utils.GetMin(distFromSmallerSphere, distFromLargerSphere);
+        double nearestDist = Utils.getMin(distFromSmallerSphere, distFromLargerSphere);
         return 1.0 - (nearestDist * 4.0); // Puts it in the -1.0 to +1.0 range.
 
     }

@@ -74,16 +74,16 @@ public class ScalePoint extends Module {
     }
 
     @Override
-    public int GetSourceModuleCount() {
+    public int getSourceModuleCount() {
         return 1;
     }
 
     @Override
-    public double GetValue(double x, double y, double z) {
+    public double getValue(double x, double y, double z) {
         if (SourceModule[0] == null)
             throw new NoModuleException();
 
-        return SourceModule[0].GetValue(x * xScale, y * yScale, z * zScale);
+        return SourceModule[0].getValue(x * xScale, y * yScale, z * zScale);
     }
 
 }

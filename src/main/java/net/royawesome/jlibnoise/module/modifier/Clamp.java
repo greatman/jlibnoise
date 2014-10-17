@@ -49,16 +49,16 @@ public class Clamp extends Module {
     }
 
     @Override
-    public int GetSourceModuleCount() {
+    public int getSourceModuleCount() {
         return 1;
     }
 
     @Override
-    public double GetValue(double x, double y, double z) {
+    public double getValue(double x, double y, double z) {
         if (SourceModule[0] == null)
             throw new NoModuleException();
 
-        double value = SourceModule[0].GetValue(x, y, z);
+        double value = SourceModule[0].getValue(x, y, z);
         if (value < lowerBound) {
             return lowerBound;
         } else if (value > upperBound) {

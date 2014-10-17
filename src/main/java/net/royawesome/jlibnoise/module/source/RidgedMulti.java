@@ -100,7 +100,7 @@ public class RidgedMulti extends Module {
     }
 
     public void setOctaveCount(int octaveCount) {
-        this.octaveCount = Utils.GetMin(octaveCount, RIDGED_MAX_OCTAVE);
+        this.octaveCount = Utils.getMin(octaveCount, RIDGED_MAX_OCTAVE);
     }
 
     public int getSeed() {
@@ -127,12 +127,12 @@ public class RidgedMulti extends Module {
     }
 
     @Override
-    public int GetSourceModuleCount() {
+    public int getSourceModuleCount() {
         return 0;
     }
 
     @Override
-    public double GetValue(double x, double y, double z) {
+    public double getValue(double x, double y, double z) {
         double x1 = x;
         double y1 = y;
         double z1 = z;
@@ -154,13 +154,13 @@ public class RidgedMulti extends Module {
             // Make sure that these floating-point values have the same range as a 32-
             // bit integer so that we can pass them to the coherent-noise functions.
             double nx, ny, nz;
-            nx = Utils.MakeInt32Range(x1);
-            ny = Utils.MakeInt32Range(y1);
-            nz = Utils.MakeInt32Range(z1);
+            nx = Utils.makeInt32Range(x1);
+            ny = Utils.makeInt32Range(y1);
+            nz = Utils.makeInt32Range(z1);
 
             // Get the coherent-noise value.
             int seed = (this.seed + curOctave) & 0x7fffffff;
-            signal = Noise.GradientCoherentNoise3D(nx, ny, nz, seed, noiseQuality);
+            signal = Noise.gradientCoherentNoise3D(nx, ny, nz, seed, noiseQuality);
 
             // Make the ridges.
             signal = Math.abs(signal);

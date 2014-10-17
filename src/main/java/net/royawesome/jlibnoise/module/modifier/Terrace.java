@@ -122,17 +122,17 @@ public class Terrace extends Module {
     }
 
     @Override
-    public int GetSourceModuleCount() {
+    public int getSourceModuleCount() {
         return 1;
     }
 
     @Override
-    public double GetValue(double x, double y, double z) {
+    public double getValue(double x, double y, double z) {
         if (SourceModule[0] == null)
             throw new NoModuleException();
 
         // Get the output value from the source module.
-        double sourceModuleValue = SourceModule[0].GetValue(x, y, z);
+        double sourceModuleValue = SourceModule[0].getValue(x, y, z);
 
         // Find the first element in the control point array that has a value
         // larger than the output value from the source module.
@@ -145,8 +145,8 @@ public class Terrace extends Module {
 
         // Find the two nearest control points so that we can map their values
         // onto a quadratic curve.
-        int index0 = Utils.ClampValue(indexPos - 1, 0, controlPointCount - 1);
-        int index1 = Utils.ClampValue(indexPos, 0, controlPointCount - 1);
+        int index0 = Utils.clampValue(indexPos - 1, 0, controlPointCount - 1);
+        int index1 = Utils.clampValue(indexPos, 0, controlPointCount - 1);
 
         // If some control points are missing (which occurs if the output value from
         // the source module is greater than the largest value or less than the
@@ -171,7 +171,7 @@ public class Terrace extends Module {
         alpha *= alpha;
 
         // Now perform the linear interpolation given the alpha value.
-        return Utils.LinearInterp(value0, value1, alpha);
+        return Utils.linearInterp(value0, value1, alpha);
 
     }
 

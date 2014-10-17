@@ -44,7 +44,7 @@ public class Cache extends Module {
     }
 
     @Override
-    public int GetSourceModuleCount() {
+    public int getSourceModuleCount() {
         return 1;
     }
 
@@ -55,12 +55,12 @@ public class Cache extends Module {
     }
 
     @Override
-    public double GetValue(double x, double y, double z) {
+    public double getValue(double x, double y, double z) {
         if (SourceModule[0] == null)
             throw new NoModuleException();
 
         if (!(isCached && x == xCache && y == yCache && z == zCache)) {
-            cachedValue = SourceModule[0].GetValue(x, y, z);
+            cachedValue = SourceModule[0].getValue(x, y, z);
             xCache = x;
             yCache = y;
             zCache = z;

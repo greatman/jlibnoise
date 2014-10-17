@@ -33,7 +33,7 @@ import net.royawesome.jlibnoise.module.Module;
  * coordinates of an input value located on the surface of a sphere.
  * <p/>
  * To generate an output value, pass the (latitude, longitude)
- * coordinates of an input value to the GetValue() method.
+ * coordinates of an input value to the getValue() method.
  * <p/>
  * This model is useful for creating: - seamless textures that can be
  * mapped onto a sphere - terrain height maps for entire planets
@@ -103,7 +103,7 @@ public class Sphere {
     public double getValue(double lat, double log) {
         if (module == null)
             throw new NoModuleException();
-        double[] vec = Utils.LatLonToXYZ(lat, log);
-        return module.GetValue(vec[0], vec[1], vec[2]);
+        double[] vec = Utils.latLonToXYZ(lat, log);
+        return module.getValue(vec[0], vec[1], vec[2]);
     }
 }
